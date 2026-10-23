@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+// Inflates the row layout for pantry items
 public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryViewHolder> {
 
     private List<PantryItem> pantryItems;
