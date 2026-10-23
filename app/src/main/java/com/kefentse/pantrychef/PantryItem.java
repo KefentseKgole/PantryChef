@@ -1,8 +1,9 @@
 package com.kefentse.pantrychef;
 
-public class PantryItem {
+public class PantryItem implements java.io.Serializable {
     private long id;
     private String name;
+
     private double quantity;
     private String unit;
     private String expiryDate;

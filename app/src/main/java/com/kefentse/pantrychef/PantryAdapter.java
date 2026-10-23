@@ -13,9 +13,18 @@ import java.util.List;
 public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryViewHolder> {
 
     private List<PantryItem> pantryItems;
+    private OnItemClickListener listener;
 
-    public PantryAdapter(List<PantryItem> pantryItems) {
+    // 1. Interface for clicks
+    public interface OnItemClickListener {
+        void onItemClick(PantryItem item);
+        void onItemLongClick(PantryItem item);
+    }
+
+    // 2. Update constructor to accept the listener
+    public PantryAdapter(List<PantryItem> pantryItems, OnItemClickListener listener) {
         this.pantryItems = pantryItems;
+        this.listener = listener;
     }
 
     @NonNull
@@ -31,10 +40,24 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.PantryView
         PantryItem currentItem = pantryItems.get(position);
 
         holder.tvItemName.setText(currentItem.getName());
-
-        // Format the quantity and unit nicely (e.g., "2.0 kg")
         String quantityText = currentItem.getQuantity() + " " + currentItem.getUnit();
         holder.tvItemQuantity.setText(quantityText);
+
+        // 3. Set up the click listeners
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) listener.onItemClick(currentItem);
+            }
+        });
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (listener != null) listener.onItemLongClick(currentItem);
+                return true;
+            }
+        });
     }
 
     @Override
