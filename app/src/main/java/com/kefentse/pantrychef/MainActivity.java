@@ -18,7 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements PantryAdapter.OnItemClickListener {
-
+    // Main entry point of the applicatio
     private RecyclerView recyclerView;
     private PantryAdapter adapter;
     private DatabaseHelper dbHelper;
