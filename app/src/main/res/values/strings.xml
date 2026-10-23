@@ -1,3 +1,4 @@
 <resources>
+    <!-- App Name -->
     <string name="app_name">PantryChef</string>
 </resources>
