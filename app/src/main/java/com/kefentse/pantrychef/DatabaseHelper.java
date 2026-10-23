@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
+// Constructor for the SQLite database
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "pantrychef.db";
